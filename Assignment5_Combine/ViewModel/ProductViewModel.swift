@@ -41,6 +41,11 @@ final class ProductViewModel: ObservableObject {
                 }
             } receiveValue: { [weak self] inventory in
                 self?.viewState = .loaded(inventory)
+                self?.saveInventoryCount(inventory: inventory)
             }.store(in: &cancellable)
     }
+    
+    func saveInventoryCount(inventory: [Inventory]) {
+           UserDefaults.standard.set(inventory.count, forKey: "InventoryCount")
+       }
 }

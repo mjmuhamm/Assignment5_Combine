@@ -10,6 +10,8 @@ import SwiftUI
 struct MainView: View {
     @StateObject var viewModel = ProductViewModel(networkManager: NetworkManager())
     
+    //Is updated in ViewModel every time getInfo() function is called to provide proper inventory count - Proper use of AppStorage
+    @AppStorage("InventoryCount") var inventoryCount = 0
     
     var body: some View {
         VStack {
@@ -25,6 +27,7 @@ struct MainView: View {
             }
         }.onAppear {
             viewModel.getInfo()
+            
         }.refreshable {
             viewModel.getInfo()
         }
@@ -34,12 +37,12 @@ struct MainView: View {
     func loadList(inventory: [Inventory]) -> some View {
         NavigationStack {
             VStack {
-                Text("Products")
+                
+                Text("Products: \(inventoryCount)")
                 List(inventory) { product in
                     InventoryCell(product: product)
                 }
             }.padding(.vertical, 6)
-            
         }
     }
 }

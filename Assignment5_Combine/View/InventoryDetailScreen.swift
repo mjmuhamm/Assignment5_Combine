@@ -10,27 +10,30 @@ import SwiftUI
 struct InventoryDetailScreen: View {
     let product : Inventory
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack(alignment: .top) {
-                AsyncImage(url: URL(string: product.image)) { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .cornerRadius(8)
-                        .frame(width: 100, height: 100)
-                } placeholder: {
-                    Image(systemName: "person.crop.circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 100, height: 100)
-                        .foregroundColor(.gray)
-            }
-                
-                VStack(alignment: .leading) {
-                    Text(product.title).padding(.bottom, 1.5).fontWeight(.bold)
+        VStack(alignment: .center) {
+            
+            AsyncImage(url: URL(string: product.image)) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(8)
+                    .frame(width: 250, height: 250)
+            } placeholder: {
+                Image(systemName: "person.crop.circle.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 250, height: 250)
+                    .foregroundColor(.gray)
+            }.padding(.bottom, 9)
+            Text(product.title)
+                .multilineTextAlignment(.center)
+                .fontWeight(.bold)
+                .fixedSize(horizontal: false, vertical: true)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .padding(.bottom, 1.5)
                     
-                    Text(String(format: "$%.2f", product.price))
-                }
+            Text(String(format: "$%.2f", product.price))
+                
             }.padding(10)
             
             VStack(alignment: .leading) {
@@ -39,8 +42,8 @@ struct InventoryDetailScreen: View {
                 Text("Category: \(product.category)").padding(.top, 0.2)
                 Text("Rating: \(product.rating.rate, specifier: "%.2f")").padding(.top, 0.2)
                 
-            }.padding(10)
-        }.frame(alignment: .topLeading)
+            }.padding(10).frame(alignment: .topLeading)
+        
         Text("* \(product.rating.count) ratings of this product *").padding(.top, 0.5).foregroundStyle(.gray).font(.system(size: 15))
     }
 }

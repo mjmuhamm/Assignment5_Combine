@@ -25,24 +25,25 @@ struct InventoryDetailScreen: View {
                     .frame(width: 250, height: 250)
                     .foregroundColor(.gray)
             }.padding(.bottom, 9)
+            
             Text(product.title)
-                .multilineTextAlignment(.center)
                 .fontWeight(.bold)
+                .multilineTextAlignment(.center)
                 .fixedSize(horizontal: false, vertical: true)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.bottom, 1.5)
-                    
-            Text(String(format: "$%.2f", product.price))
-                
-            }.padding(10)
             
-            VStack(alignment: .leading) {
-                Text("Id: \(product.id)").padding(.top, 0.2)
-                Text("Description: \(product.description)").padding(.top, 0.2)
-                Text("Category: \(product.category)").padding(.top, 0.2)
-                Text("Rating: \(product.rating.rate, specifier: "%.2f")").padding(.top, 0.2)
-                
-            }.padding(10).frame(alignment: .topLeading)
+            Text(String(format: "$%.2f", product.price))
+            
+        }.padding(10)
+        
+        VStack(alignment: .leading) {
+            Text("Id: \(product.id)").padding(.top, 0.2)
+            Text("Description: \(product.description)").padding(.top, 0.2)
+            Text("Category: \(product.category)").padding(.top, 0.2)
+            Text("Rating: \(product.rating.rate, specifier: "%.2f")").padding(.top, 0.2)
+            
+        }.padding(10).frame(alignment: .topLeading)
         
         Text("* \(product.rating.count) ratings of this product *").padding(.top, 0.5).foregroundStyle(.gray).font(.system(size: 15))
     }

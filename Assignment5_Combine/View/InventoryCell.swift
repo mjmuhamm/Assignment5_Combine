@@ -30,7 +30,7 @@ struct InventoryCell: View {
                 
                 VStack(alignment: .leading) {
                     Text(product.title).fontWeight(.bold)
-                    print("test")
+                    
                 }
             }.padding(10)
         }

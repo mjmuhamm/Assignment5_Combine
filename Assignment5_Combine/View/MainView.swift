@@ -10,7 +10,7 @@ import SwiftUI
 struct MainView: View {
     @StateObject var viewModel = ProductViewModel(networkManager: NetworkManager())
     
-    //Is updated in ViewModel every time getInfo() function is called to provide proper inventory count - Proper use of AppStorage
+    //Is updated in ViewModel every time getInfo() function is called to provide proper inventory count - Proper use of AppStorage; could be applied to CommentSection count of ImageApp or Reviews of Products count
     @AppStorage("InventoryCount") var inventoryCount = 0
     
     var body: some View {

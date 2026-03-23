@@ -38,7 +38,7 @@ struct MainView: View {
         NavigationStack {
             VStack {
                 
-                Text("Products: \(inventoryCount)")
+                Text("\(inventoryCount) Products").fontWeight(.bold)
                 List(inventory) { product in
                     InventoryCell(product: product)
                 }

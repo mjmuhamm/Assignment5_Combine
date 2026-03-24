@@ -21,7 +21,7 @@ struct InventoryDetailScreen: View {
                         .cornerRadius(8)
                         .frame(width: 250, height: 250)
                 } placeholder: {
-                    Image(systemName: "person.crop.circle.fill")
+                    Image(systemName: "person.2.square.stack")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 250, height: 250)

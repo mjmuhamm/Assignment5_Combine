@@ -43,7 +43,7 @@ struct InventoryDetailScreen: View {
                 Text("Id: \(product.id)").padding(.top, 0.2).fontWeight(.light)
                 Text("Description: \(product.description)").padding(.top, 0.2).fontWeight(.light)
                 Text("Category: \(product.category)").padding(.top, 0.2).fontWeight(.light)
-                Text("Rating: \(product.rating.rate, specifier: "%.2f")").padding(.top, 0.2).fontWeight(.light)
+                Text("Rating: \(product.rating.rate, specifier: "%.1f")").padding(.top, 0.2).fontWeight(.light)
                 
             }.padding(.horizontal, 35).padding(.top).frame(alignment: .topLeading)
         }

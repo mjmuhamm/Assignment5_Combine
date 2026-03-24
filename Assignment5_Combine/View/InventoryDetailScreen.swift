@@ -40,10 +40,10 @@ struct InventoryDetailScreen: View {
             }.padding(10)
             
             VStack(alignment: .leading) {
-                Text("Id: \(product.id)").padding(.top, 0.2)
-                Text("Description: \(product.description)").padding(.top, 0.2)
-                Text("Category: \(product.category)").padding(.top, 0.2)
-                Text("Rating: \(product.rating.rate, specifier: "%.2f")").padding(.top, 0.2)
+                Text("Id: \(product.id)").padding(.top, 0.2).fontWeight(.light)
+                Text("Description: \(product.description)").padding(.top, 0.2).fontWeight(.light)
+                Text("Category: \(product.category)").padding(.top, 0.2).fontWeight(.light)
+                Text("Rating: \(product.rating.rate, specifier: "%.2f")").padding(.top, 0.2).fontWeight(.light)
                 
             }.padding(.horizontal, 35).padding(.top).frame(alignment: .topLeading)
         }
